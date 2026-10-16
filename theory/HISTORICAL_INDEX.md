@@ -57,7 +57,7 @@ mathematical foundations"). A team member building on this method line should re
 |---|---|---|
 | `claude/final_method_definition_2026-10-06.md` | 2026-10-06 | method definition (an earlier freeze point) |
 | `claude/rejection_response_plan_2026-10-06.md` | 2026-10-06 | response plan to the TIFS desk rejection |
-| `claude/paper_storyline_LGC_EGC_2026-10-06.md` | 2026-10-06 | paper storyline / narrative draft — referenced directly by `decisions/2026-10-15_sigma_research_decision.md` §1 item 4 (its §6 needs a one-sentence edit) |
+| `claude/paper_storyline_LGC_EGC_2026-10-06.md` | 2026-10-06 | paper storyline / narrative draft |
 | `claude/build36_results_2026-10-06.md` | 2026-10-06 | build 36 results |
 | `claude/ttba_protocol_build38_2026-10-07.md` | 2026-10-07 | TtBA protocol, build 38 (the prereg build referenced throughout the current contract as `prereg_build38.txt`) |
 | `claude/original_vs_LGC_EGC_2026-10-07.md` | 2026-10-07 | comparison: original method vs LGC_EGC |
