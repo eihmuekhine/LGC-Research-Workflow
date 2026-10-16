@@ -50,16 +50,23 @@ discipline).
 ## Reading order for a new team member
 
 1. This README.
-2. `handoffs-and-reviews/2026-10-16_b4h_close_verification.md` — the most current verified state.
-3. `contract/paper_contract_v1.9_decisions_D1-D19.md` — what's actually decided, and what's still open (its own
-   "Known gaps" section is important: D15/D17/D18 were never captured verbatim here, E12 is still undecided, E18 was
-   never located in any contract text seen).
-4. `decisions/LESSONS_current_2026-10-16.md` — read the `active` and `encoded` rows before touching anything on
-   AutoDL; never contradict an `active` row without asking H.
-5. `skills/preflight_runbook_and_lgc-preflight_skill_v1.3_2026-10-13.md` — the actual skill and runbook text used to
+2. `contract/2026-10-17_contract_v1.9-rev3_update.md` — **read this before the D1-D19 extract below.** It was
+   written after cross-checking against the live `contract/paper_contract.yaml` pushed to the companion
+   [LGC-Experiment-Results](https://github.com/eihmuekhine/LGC-Experiment-Results) repo, and it corrects several
+   points the rest of this repo could not have known at the time it was built: the study GPU is the RTX 5090, not
+   RTX PRO 6000 (D16 reverted); E10 (Places365) is CUT (ImageNet-only scope now); E12 was redefined, not left
+   undecided; there is no D15/D17/D18 at all (the numbering just skips them); E18 is formally NOT APPLICABLE (D20).
+3. `handoffs-and-reviews/2026-10-16_b4h_close_verification.md` — the most current verified state of the B4-phase
+   evidence trail (still accurate; the contract update above is about scope/GPU decisions made *after* this point).
+4. `contract/paper_contract_v1.9_decisions_D1-D19.md` — the D1-D19 reasoning record, current through 2026-10-15/early
+   -10-16 — still the right place for *why* D11-D14 and D19 exist, just not for current D16/D5/E10-E12 status.
+5. `decisions/LESSONS_current_2026-10-16.md` — read the `active` and `encoded` rows before touching anything on
+   AutoDL; never contradict an `active` row without asking H. (Cross-checked against the live `docs/LESSONS.md` in
+   LGC-Experiment-Results on 2026-10-17: unchanged, still 33 rows.)
+6. `skills/preflight_runbook_and_lgc-preflight_skill_v1.3_2026-10-13.md` — the actual skill and runbook text used to
    drive OpenCode phases.
-6. `b5-planning/` — what has to happen before and during the next full run.
-7. `handoffs-and-reviews/` in date order, if you want the full reasoning trail: B4b (anomaly first seen) → B4c
+7. `b5-planning/` — what has to happen before and during the next full run.
+8. `handoffs-and-reviews/` in date order, if you want the full reasoning trail: B4b (anomaly first seen) → B4c
    (narrowed to CNN victims) → B4d (root cause + D11–D14 proposed) → contract v1.8 applied → B4e / B4e-GPU-decision /
    B4e-followup (precision parity confirmed, GPU churn, reviewer calibration) → B4g (new, independent oracle-domain
    defect found) → B4h triage chain → B4h-Close (current state).
