@@ -94,21 +94,34 @@ mathematical foundations"). A team member building on this method line should re
 | `claude/p2_close_and_kit_v5_2026-10-10.md` | 2026-10-10 | phase-2 close + kit v5 |
 | `claude/paper_contract_2026-10-10.md` | 2026-10-10 | contract discussion (early version, before v1.1) |
 | `claude/checkpoints_v1.1_2026-10-10.md` | 2026-10-10 | checkpoint schedule, contract v1.1 |
-| `claude/handoff_2026-10-10_master.md` | 2026-10-10 | master handoff — **cited directly** by `2026-10-15_handoff_master.md` §1 as the source for "the A-block is NOT PVR-E (erratum)" and the stable method/protocol/statistics context; worth pulling first among this batch |
+| `claude/handoff_2026-10-10_master.md` | 2026-10-10 | master handoff — **cited directly** by `handoffs-and-reviews/2026-10-15_handoff_master.md` §1 as the source for "the A-block is NOT PVR-E (erratum)" and the stable method/protocol/statistics context; worth pulling first among this batch |
 | `claude/paper_contract_v1.1.yaml` | 2026-10-10 | raw contract YAML, v1.1 (early ancestor of the current `contract/paper_contract_v1.9_decisions_D1-D19.md` in this repo) |
-| `claude/b4b_review_2026-10-12.md` | 2026-10-12 | B4b phase review |
-| `claude/b4c_review_2026-10-13.md` | 2026-10-12 (created_at) | B4c phase review |
 
-## B4d–B4f and contract v1.8 era (2026-10-13)
-| path | date | tag |
+## B0–B4h: the baseline-fidelity defect-and-fix chain — now reproduced IN FULL (not indexed)
+
+An earlier pass through this repo indexed only B4g onward and left B4b–B4e as "historical/superseded." That was a
+mistake for this purpose: B4b–B4e are where the contract's foundational baseline-fidelity decisions (**D11** the
+CGBA `acos` clip, **D12** precision parity / TF32-vs-FP32, **D13** the G5 statistical fidelity gate, **D14**
+one-process-per-GPU) were actually discovered, diagnosed and tested — without them, the v1.9 contract text in
+`../contract/paper_contract_v1.9_decisions_D1-D19.md` states *what* was decided but not *why*, or what evidence
+backs it. They are now reproduced in full in `../handoffs-and-reviews/`, in chronological order:
+
+| path (in `../handoffs-and-reviews/`) | date | what it establishes |
 |---|---|---|
-| `claude/b4d_review_2026-10-13.md` | 2026-10-13 | B4d phase review |
-| `claude/contract_v18_and_B4e_2026-10-13.md` | 2026-10-13 | contains `contract_v18.py`, the apply-script pattern referenced (but not reproduced in full) in `handoffs-and-reviews/2026-10-15_handoff_master.md` §7 |
-| `claude/b4e_review_2026-10-13.md` | 2026-10-13 | B4e phase review |
-| `claude/b4e_gpu_decision_2026-10-13.md` | 2026-10-13 | GPU decision note — **explicitly marked superseded** in `2026-10-15_handoff_master.md` §2 ("its T0a/T0b were never executed; replaced by B4e2") |
-| `claude/evaluation_fairness_guide_2026-10-13.md` | 2026-10-13 | fairness guide (L1–L4 layers referenced throughout this repo's skill and workflow-upgrade docs) |
-| `claude/preflight_runbook_2026-10-13.md` | 2026-10-13 | **superseded by** `skills/preflight_runbook_and_lgc-preflight_skill_v1.3_2026-10-13.md` in this repo, which reproduces its full v1.3 content |
-| `claude/b4e_followup_checker_eval_2026-10-13.md` | 2026-10-13 | B4e follow-up + checker evaluation. **Contains the private calibration answer key for the reviewer-model calibration exercise — deliberately NOT reproduced anywhere in this shared repo, per the standing project rule that the answer key stays in the Project only and never goes on AutoDL or into any shared location.** The non-sensitive parts (B4e state, v1.9 items) are otherwise summarized secondhand in `handoffs-and-reviews/2026-10-15_handoff_master.md`. |
+| `2026-10-12_b4b_review.md` | 2026-10-12 | first evidence of the CGBA magnitude anomaly (later traced to the D11 defect) |
+| `2026-10-13_b4c_review.md` | 2026-10-13 | CGBA stall pattern narrowed down (CNN victims only); TF32 precision-parity risk first raised |
+| `2026-10-13_b4d_review.md` | 2026-10-13 | root cause found: unclamped `acos` at `proposed_attack.py:182`; contract v1.8 (D11–D14) proposed |
+| `2026-10-13_contract_v18_and_b4e.md` | 2026-10-13 | the `contract_v18.py` apply script; the final B4e prompt implementing D11–D14 |
+| `2026-10-13_b4e_review.md` | 2026-10-13 | B4e interrupted by a GPU change mid-run; confirms TF32 is the root cause of the CGBA stall (not just a risk) |
+| `2026-10-13_b4e_gpu_decision.md` | 2026-10-13 | the GPU-change episode that became LESSONS L03 (now superseded as an operative decision, but kept in full for that history) |
+| `2026-10-13_b4e_followup_checker_eval.md` | 2026-10-13 | B4e closed out; reviewer-model (GLM/Qwen/Kimi) calibration, with the private answer key redacted; origin of LESSONS L05/L20 |
+
+`../skills/2026-10-13_evaluation_fairness_guide.md` (moved out of this index into the skills/ folder, full text) is
+the methodology reference (the L1–L4 parameter-layer classification) these reviews apply throughout.
+
+`claude/preflight_runbook_2026-10-13.md` is **superseded by**
+`../skills/preflight_runbook_and_lgc-preflight_skill_v1.3_2026-10-13.md` in this repo, which reproduces its full
+v1.3 content — not indexed separately here.
 
 ## Note on the four legacy standalone `.py` files
 `run_places365_attack.py`, `lgc_optimizer_compare.py`, `utils.py`, `lgc_attack_1.py` (all `created_at` 2026-09-25) are

@@ -44,7 +44,7 @@ discipline).
 | `contract/` | The extracted, annotated text of `contract/paper_contract.yaml` decisions D1–D19 and the changelog, as last read directly from the live file. **This is a reference extract, not the live file** — only H edits the real contract on AutoDL. |
 | `decisions/` | The current (33-row, L01–L23) LESSONS.md ledger, and standalone decision write-ups (e.g. the σ-rescaling research decision) that don't belong inside a phase handoff. |
 | `b5-planning/` | The live plan for getting from contract sign-off to the B5 (n=200) confirmatory run: the sign-off plan with corrections, and the full stage-by-stage human-checks checklist. |
-| `handoffs-and-reviews/` | Chronological phase reviews and handoffs, B4b through B4h-Close — the detailed, evidence-checked record of how the D19 oracle-domain defect was found, triaged and fixed. Read in date order if you want the full story; read `2026-10-16_b4h_close_verification.md` first if you just want the current state. |
+| `handoffs-and-reviews/` | Chronological phase reviews and handoffs, **B4b through B4h-Close in full** — the detailed, evidence-checked record of two defect-and-fix chains: (1) B4b→B4e, the baseline-fidelity chain behind D11 (CGBA `acos` clip), D12 (precision parity / TF32), D13 (the G5 fidelity gate) and D14 (concurrency rule); (2) B4g→B4h-Close, the D19 oracle-domain-consistency chain. Read in date order for the full story; read `2026-10-16_b4h_close_verification.md` first if you just want the current state. |
 | `theory/HISTORICAL_INDEX.md` | An index (not full text) of the ~65 older Project documents — early builds, theory derivations, superseded contract versions — with pointers for pulling any of them in full on request. |
 
 ## Reading order for a new team member
@@ -59,7 +59,10 @@ discipline).
 5. `skills/preflight_runbook_and_lgc-preflight_skill_v1.3_2026-10-13.md` — the actual skill and runbook text used to
    drive OpenCode phases.
 6. `b5-planning/` — what has to happen before and during the next full run.
-7. `handoffs-and-reviews/` in date order, if you want the reasoning trail (B4g defect found → B4h triage → fix → close).
+7. `handoffs-and-reviews/` in date order, if you want the full reasoning trail: B4b (anomaly first seen) → B4c
+   (narrowed to CNN victims) → B4d (root cause + D11–D14 proposed) → contract v1.8 applied → B4e / B4e-GPU-decision /
+   B4e-followup (precision parity confirmed, GPU churn, reviewer calibration) → B4g (new, independent oracle-domain
+   defect found) → B4h triage chain → B4h-Close (current state).
 
 ## What's deliberately NOT in this repo
 
@@ -70,11 +73,13 @@ discipline).
 - **No calibration answer key.** `claude/b4e_followup_checker_eval_2026-10-13.md` (listed in `theory/HISTORICAL_INDEX.md`)
   contains the private answer key used to score reviewer-model calibration; it stays in the Project only, by design,
   and is not reproduced or referenced in detail here.
-- **No verbatim full text of the ~65 older/historical Project documents.** Reproducing all 85 Project documents
-  verbatim at full scale was impractical to do by hand in one pass; `theory/HISTORICAL_INDEX.md` indexes them by
-  title/date so anyone can ask for a specific one in full, rather than getting nothing. The ~14 documents judged
-  "current/operational" (the live skill, the current contract decisions, the current LESSONS ledger, the active B5
-  plan, and the full B4g→B4h→Close defect-and-fix chain) are reproduced here in full.
+- **No verbatim full text of the ~57 remaining older/historical Project documents** (early builds, theory
+  derivations, superseded contract versions pre-dating v1.1). Reproducing all 85 Project documents verbatim at full
+  scale was impractical to do by hand in one pass; `theory/HISTORICAL_INDEX.md` indexes them by title/date so anyone
+  can ask for a specific one in full, rather than getting nothing. The ~22 documents judged "current/operational"
+  (the live skill, the fairness-methodology guide, the current contract decisions, the current LESSONS ledger, the
+  active B5 plan, and the full B4b→B4e and B4g→B4h→Close defect-and-fix chains) are reproduced here in full — see
+  `theory/HISTORICAL_INDEX.md`'s "B0–B4h" section for why the line was redrawn after an initial, narrower pass.
 - **No legacy standalone experiment scripts** (`run_places365_attack.py`, `lgc_optimizer_compare.py`, `utils.py`,
   `lgc_attack_1.py`) — pre-freeze code that predates the current adapter architecture; see the note at the end of
   `theory/HISTORICAL_INDEX.md`.
